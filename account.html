@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - ConnectSpace</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ConnectSpace</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li class="user-menu">
+                    <button class="user-menu-btn">👤 Account</button>
+                    <div class="dropdown">
+                        <a href="account.html">Account Settings</a>
+                        <a href="#" id="signoutBtn">Sign Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="account-section">
+        <div class="container">
+            <div class="account-layout">
+                <aside class="account-sidebar">
+                    <div class="user-profile">
+                        <div class="avatar">👤</div>
+                        <h3 id="userName">User Name</h3>
+                        <p id="userEmail">user@email.com</p>
+                    </div>
+
+                    <nav class="account-menu">
+                        <button class="menu-item active" data-tab="profile"><span>👤</span> Profile</button>
+                        <button class="menu-item" data-tab="security"><span>🔒</span> Security</button>
+                        <button class="menu-item" data-tab="notifications"><span>🔔</span> Notifications</button>
+                        <button class="menu-item" data-tab="billing"><span>💳</span> Billing</button>
+                    </nav>
+                </aside>
+
+                <main class="account-content">
+                    <div id="profileTab" class="tab-content active">
+                        <h2>Profile Settings</h2>
+                        <form id="profileForm" class="settings-form">
+                            <div class="form-group">
+                                <label for="profileName">Full Name</label>
+                                <input type="text" id="profileName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileEmail">Email Address</label>
+                                <input type="email" id="profileEmail" required>
+                                <small>We'll send you a verification link if you change this</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="profilePhone">Phone Number (Optional)</label>
+                                <input type="tel" id="profilePhone">
+                            </div>
+                            <div class="form-group">
+                                <label for="profileBio">Bio</label>
+                                <textarea id="profileBio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <div id="securityTab" class="tab-content">
+                        <h2>Security Settings</h2>
+                        <div class="security-section">
+                            <h3>Change Password</h3>
+                            <form id="passwordForm" class="settings-form">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <div class="password-container">
+                                        <input type="password" id="currentPassword" required>
+                                        <button type="button" class="toggle-password" onclick="togglePassword('currentPassword')">👁️</button>
+                                    </div>
+                                    <span class="error-message" id="currentPasswordError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <div class="password-container">
+                                        <input type="password" id="newPassword" required>
+                                        <button type="button" class="toggle-password" onclick="togglePassword('newPassword')">👁️</button>
+                                    </div>
+                                    <span class="error-message" id="newPasswordError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <div class="password-container">
+                                        <input type="password" id="confirmPassword" required>
+                                        <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</button>
+                                    </div>
+                                    <span class="error-message" id="confirmPasswordError"></span>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Password</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="notificationsTab" class="tab-content">
+                        <h2>Notification Preferences</h2>
+                        <div class="notification-settings">
+                            <div class="notification-item">
+                                <div>
+                                    <h3>Email Notifications</h3>
+                                    <p>Receive updates about your account and projects</p>
+                                </div>
+                                <input type="checkbox" class="toggle" checked>
+                            </div>
+                            <div class="notification-item">
+                                <div>
+                                    <h3>Project Updates</h3>
+                                    <p>Get notified when team members update projects</p>
+                                </div>
+                                <input type="checkbox" class="toggle" checked>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary">Save Preferences</button>
+                    </div>
+
+                    <div id="billingTab" class="tab-content">
+                        <h2>Billing & Subscription</h2>
+                        <div class="billing-section">
+                            <h3>Current Plan</h3>
+                            <div class="plan-card">
+                                <h4>Professional Plan</h4>
+                                <p class="price">$29<span>/month</span></p>
+                                <p class="renewal">Renews on June 15, 2026</p>
+                                <button type="button" class="btn btn-secondary">Upgrade Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ConnectSpace. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#twitter">Twitter</a>
+                <a href="#linkedin">LinkedIn</a>
+                <a href="#github">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/account.js"></script>
+</body>
+</html>
